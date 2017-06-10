@@ -15,3 +15,7 @@ Use -o=output_address to print results to file.
 
 All results are printed to the terminal unless an -o flag is given.
 
+For example to find the number of genes and all gene_ids a gtffile.gtf and print to output file output.txt use the command
+
+perl gtfparser.pl -f=gtffile.gtf -o=output.txt -gl
+
