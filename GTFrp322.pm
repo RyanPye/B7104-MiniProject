@@ -69,6 +69,17 @@ sub geneFeatures{
 	return @features;
 }
 
+sub geneList{
+	($file) = @_;
+	@geneids = ($file =~ /\tgene_id "(.*?)";/g);  
+	foreach (@geneids) {
+		unless ($genes{$_}) {
+			$genes{$_} = 1;
+		}  
+	}
+	return keys %genes;
+}
+
 sub __exonutil { #Populates %exoncount with keys being gene_ids and values exon counts
 	# Double underscore used to denote as private method
 	@exons = ($file =~ /exon.*?[^\n]*gene_id "(.*?)";/g);
