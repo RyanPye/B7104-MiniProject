@@ -9,7 +9,7 @@ package GTFrp322;
 my (@geneids, %genes, @exons, $genes, @exoncounts);
 my ($exons, $average, $maxcount, $maxname, $keys, @exoncount, @genes);
 my (@start, @end, $count, $length, $total, %exoncount, $file, @results, $num);
-my (@lines, $gene, @features);
+my (@lines, $gene, @features, @positions);
 sub countGenes { #Determines total gene count
 	($file) = @_;
 	@geneids = ($file =~ /\tgene_id "(.*?)";/g);  
@@ -58,6 +58,15 @@ sub highestExon{ #Determines highest exon count
 	}
 	return ($maxname, $maxcount);
 }
+
+sub geneRange{
+	($file,$gene) = @_;
+	@positions = $file =~ /(\d+)\t(\d+)[^\n]*?gene_id "$gene";/g;
+	@positions = sort {$a <=> $b} @positions;
+	@results = ($positions[0], $positions[-1],$positions[-1] - $positions[0] + 1); 
+	return @results;
+}	
+	
 sub geneFeatures{
 	($file,$gene) = @_;
 	@lines = split /\n/,$file;
