@@ -10,7 +10,8 @@ Use -e to return number of exons.
 Use -a to return average exon length.
 Use -n to return gene with the highest exon count.
 Use -l to return all gene_ids. 
-Use -d to change divider on return list of gene_ids
+Use -d to change divider on return list of gene_ids.
+Use -r gene_id to return the range of a gene.
 Use -m gene_id to return all features associated with the gene.
 Use -o output_address to print results to file.
 
