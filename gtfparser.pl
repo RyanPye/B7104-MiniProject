@@ -79,13 +79,13 @@ if ($opts{'a'}){
 }
 if ($opts{'n'}){
 	@results = GTFrp322::highestExon($filecontents);
-	print "# Highest exon gene: $results[0]\nWith exon count: $results[1]\n";
+	print "# Highest exon gene: $results[0]\n# With exon count: $results[1]\n";
 }
 
 if ($opts{'r'}){
 	$gene_id = $opts{'r'};
 	@results = GTFrp322::geneRange($filecontents, $gene_id);
-	print "# Gene range of $gene_id\nStart position $results[0]\nEnd position $results[1]\nRange $results[2]\n";
+	print "# Gene range of $gene_id\n# Start position $results[0]\n# End position $results[1]\n# Range $results[2]\n";
 }	
 
 if ($opts{'m'}){
